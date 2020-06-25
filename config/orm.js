@@ -1,8 +1,16 @@
-const orm = require("orm");
-const require = ("connection.js");
+const connection = require("connection.js");
 
-selectAll()
-insertOne()
-updateOne()
+const orm = {
+    selectAll: function (tableInput, callback) {
+        const queryString = `SELECT * FROM ${tableInput};`;
+        connection.query(queryString, (err, response) => {
+            if (err) throw err;
+            callback(response);
+        });
+    },
 
-module.exports = burger; 
+    // insertOne() 
+    // updateOne()
+}
+
+module.exports = orm; 
