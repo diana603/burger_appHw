@@ -10,8 +10,8 @@ app.use(express.json());
 
 app.use(express.static("./public"));
 
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+app.listen(PORT, () => {
+    console.log("server listening on PORT " + PORT);
 });
 
 // work on connection.js connection to database(to mysql) connect connection.js to server.js   
