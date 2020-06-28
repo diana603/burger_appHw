@@ -1,0 +1,51 @@
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="card">
+            <h4 class="card-header text-center">Burger List</h4>
+            <div class="card-body">
+                {{!-- burger data thats not devoured--}}
+                {{#each data}}
+                {{#unless this.devoured}}
+
+                <div class="input-group my-4">
+                    <li class="form-control">{{this.id}}. {{this.burger_name}}</li> <button
+                        class="btn btn-success devoured-button" data-id="{{this.id}}" type="submit">Devoured</button>
+                </div>
+
+                {{/unless}}
+                {{/each}}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <h4 class="card-header text-center">Already Ate</h4>
+            <div class="card-body">
+                {{!-- burger data that devoured --}}
+                {{#each data}}
+                {{#if this.devoured}}
+                <div class="input-group my-4">
+                    <li class="form-control">{{this.id}}. {{this.burger_name}}</li>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <h4 class="card-header text-center">To Be Determined</h4>
+            <div class="card-body">
+                <div class="input-group my-4">
+                    <input id="new_burger">
+                    <button id="submit-button"> Submit </button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>

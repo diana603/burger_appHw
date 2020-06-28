@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const burger = require('../config/orm');
+const burger = require('../models/burger.js');
 
 router.get("/", (req, res) => {
     burger.selectAll(function (burgerData) {
@@ -13,8 +13,8 @@ router.post('/burger/create', function (req, res) {
         res.redirect('/');
     })
 })
-router.post('/burger/devour', function (req, res) {
-    burger.insertOne(req.body.id, function () {
+router.post('/burger/devoured', function (req, res) {
+    burger.updateOne(req.body.id, function () {
         res.redirect('/');
     })
 })
